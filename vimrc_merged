@@ -1,0 +1,87 @@
+syntax enable
+syntax on
+set tabstop=4
+set nu
+set t_Co=256
+set background=dark
+let g:solarized_termtrans=1
+colorscheme solarized
+set fileencodings=utf-8,gbk
+set shiftwidth=4
+set expandtab
+set softtabstop=4
+set autoindent
+set cindent
+set hls
+"colorscheme evening
+set cursorline
+hi Visual cterm=NONE ctermbg=yellow ctermfg=white guibg=darkred guifg=white
+"
+""hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+" 显示tab和空格
+set list
+" 设置tab和空格样式
+set lcs=tab:\>\ ,nbsp:%,trail:-
+" 设定行首tab为灰色
+highlight LeaderTab guifg=#666666
+" 匹配行首tab
+match LeaderTab /^\t/
+
+
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+inoremap { {<CR>}<Esc>O
+autocmd Syntax html,vim inoremap < <lt>><Esc>i| inoremap > <c-r>=ClosePair('>')<CR>
+inoremap ) <c-r>=ClosePair(')')<CR>
+inoremap ] <c-r>=ClosePair(']')<CR>
+inoremap } <c-r>=CloseBracket()<CR>
+inoremap " <c-r>=QuoteDelim('"')<CR>
+inoremap ' <c-r>=QuoteDelim("'")<CR>
+
+function ClosePair(char)
+ if getline('.')[col('.') - 1] == a:char
+ return "\<Right>"
+ else
+ return a:char
+ endif
+endf
+
+function CloseBracket()
+ if match(getline(line('.') + 1), '\s*}') < 0
+ return "\<CR>}"
+ else
+ return "\<Esc>j0f}a"
+ endif
+endf
+
+function QuoteDelim(char)
+ let line = getline('.')
+ let col = col('.')
+ if line[col - 2] == "\\"
+ "Inserting a quoted quotation mark into the string
+ return a:char
+ elseif line[col - 1] == a:char
+ "Escaping out of the string
+ return "\<Right>"
+ else
+ "Starting a string
+ return a:char.a:char."\<Esc>i"
+ endif
+endf
+
+set nocompatible              " be iMproved
+filetype off                  " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+Bundle 'Valloric/YouCompleteMe'
+
+filetype plugin indent on     " required!
+
+"let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+
