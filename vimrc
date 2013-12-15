@@ -8,6 +8,7 @@ call vundle#rc()
 " required! 
 Bundle 'gmarik/vundle'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'nathanaelkane/vim-indent-guides'
 
 filetype plugin indent on     " required!
 "
@@ -20,6 +21,13 @@ filetype plugin indent on     " required!
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle commands are not allowed.
 " 
+
+let g:indent_guides_guide_size=1
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=lightgrey ctermbg=236
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=lightgrey ctermbg=237
+autocmd VimEnter * :IndentGuidesEnable
+
 set encoding=utf-8
 let g:Powerline_symbols='fancy'
 set laststatus=2
@@ -40,9 +48,11 @@ set autoindent
 set cindent
 set hls
 set cursorline
+"set cursorcolumn
 hi Visual cterm=NONE ctermbg=yellow ctermfg=white guibg=darkred guifg=white
 set list
 set lcs=tab:\>\ ,nbsp:%,trail:-
+set cinoptions=g0 " set public indent no tab
 hi LeaderTab guifg=#666666
 match LeaderTab /^\t/
 
