@@ -71,3 +71,10 @@ DEFAULT_USER=chengximing@lenovo
 
 source ~/github/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fpath=(~/github/zsh-completions/src $fpath)
+
+# alias seetings
+alias zshnow="source ~/.zshrc"
+alias vimrc="vi ~/.vimrc"
+alias gitd='git diff --color'
+alias gitup="git ls-files -d | xargs -i git checkout {}"
+alias zshrc="vi ~/.zshrc"

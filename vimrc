@@ -9,6 +9,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'vim-scripts/TagHighlight'
+"Bundle 'vim-scripts/taglist.vim'
 
 filetype plugin indent on     " required!
 "
@@ -24,10 +26,15 @@ filetype plugin indent on     " required!
 
 let g:indent_guides_guide_size=1
 let g:indent_guides_auto_colors = 0
+let Tlist_Exit_OnlyWindo=1
+let Tlist_Show_One_File=1
+let Tlist_Auto_Open=1
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=lightgrey ctermbg=236
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=lightgrey ctermbg=237
 autocmd VimEnter * :IndentGuidesEnable
 
+"autocmd VimEnter * :TlistToggle
+autocmd VimEnter * :UpdateTypesFile
 set encoding=utf-8
 let g:Powerline_symbols='fancy'
 set laststatus=2
