@@ -73,8 +73,11 @@ source ~/github/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fpath=(~/github/zsh-completions/src $fpath)
 
 # alias seetings
+alias ycmconf="vi ~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py"
 alias zshnow="source ~/.zshrc"
 alias vimrc="vi ~/.vimrc"
-alias gitd='git diff --color'
+alias gits="git status"
+# alias gitd="git diff --color"
 alias gitup="git ls-files -d | xargs -i git checkout {}"
 alias zshrc="vi ~/.zshrc"
+export TERM=xterm-256color

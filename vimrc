@@ -12,7 +12,9 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'scrooloose/syntastic'
-"Bundle 'scrooloose/nerdtree'
+"Bundle 'octol/vim-cpp-enhanced-highlight'
+Bundle 'scrooloose/nerdtree'
+Bundle 'Valloric/YouCompleteMe'
 "Bundle 'altercation/vim-colors-solarized'
 "Bundle 'vim-scripts/TagHighlight'
 "Bundle 'vim-scripts/taglist.vim'
@@ -60,6 +62,7 @@ set autoindent
 set cindent
 set hls
 set cursorline
+set cc=100
 "set cursorcolumn
 hi Visual cterm=NONE ctermbg=yellow ctermfg=white guibg=darkred guifg=white
 set list
@@ -67,6 +70,7 @@ set lcs=tab:\>\ ,nbsp:%,trail:-
 set cinoptions=g0 " set public indent no tab
 hi LeaderTab guifg=#666666
 match LeaderTab /^\t/
+map <C-n> :NERDTreeToggle<CR>
 
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
@@ -92,3 +96,15 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+
+" Syntastic
+let g:syntastic_c_checkers=['make']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_signs=1
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*gbar
