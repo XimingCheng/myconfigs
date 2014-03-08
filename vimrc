@@ -9,7 +9,12 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'vim-scripts/TagHighlight'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'Raimondi/delimitMate'
+Bundle 'scrooloose/syntastic'
+"Bundle 'scrooloose/nerdtree'
+"Bundle 'altercation/vim-colors-solarized'
+"Bundle 'vim-scripts/TagHighlight'
 "Bundle 'vim-scripts/taglist.vim'
 
 filetype plugin indent on     " required!
@@ -34,7 +39,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=lightgrey ctermbg=237
 autocmd VimEnter * :IndentGuidesEnable
 
 "autocmd VimEnter * :TlistToggle
-autocmd VimEnter * :UpdateTypesFile
+"autocmd VimEnter * :UpdateTypesFile
 set encoding=utf-8
 let g:Powerline_symbols='fancy'
 set laststatus=2
@@ -63,4 +68,27 @@ set cinoptions=g0 " set public indent no tab
 hi LeaderTab guifg=#666666
 match LeaderTab /^\t/
 
-
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
