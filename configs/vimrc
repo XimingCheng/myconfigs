@@ -11,8 +11,8 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'Raimondi/delimitMate'
-Bundle 'scrooloose/syntastic'
-"Bundle 'octol/vim-cpp-enhanced-highlight'
+"Bundle 'scrooloose/syntastic'
+Bundle 'octol/vim-cpp-enhanced-highlight'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Valloric/YouCompleteMe'
 "Bundle 'altercation/vim-colors-solarized'
@@ -96,15 +96,20 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+let delimitMate_expand_cr = 2
+let delimitMate_jump_expansion = 1
+
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+highlight YcmErrorLine guibg=#3f0000
+let g:ycm_confirm_extra_conf = 0 
 
 " Syntastic
-let g:syntastic_c_checkers=['make']
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open=1
-let g:syntastic_enable_signs=1
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*gbar
+"let g:syntastic_c_checkers=['make']
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_check_on_open=1
+"let g:syntastic_enable_signs=1
+"let g:syntastic_error_symbol = '✗'
+"let g:syntastic_warning_symbol = '⚠'
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*gbar

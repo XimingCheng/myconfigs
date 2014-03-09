@@ -52,7 +52,7 @@ flags = [
 # a "-std=<something>".
 # For a C project, you would set this to something like 'c99' instead of
 # 'c++11'.
-# '-std=c++11',
+'-std=c++11',
 # ...and the same thing goes for the magic -x option which specifies the
 # language that the files to be compiled are written in. This is mostly
 # relevant for c++ headers.
@@ -67,28 +67,22 @@ flags = [
 
 '-I',
 '.',
-'-I',
-'/usr/include/wx-2.8/wx',
-'-I',
-'/usr/include/wx-2.8',
-'-I',
-'/usr/include/c++/4.8',
-'-I',
+'-isystem',
+'/usr/bin/../lib/gcc/i686-linux-gnu/4.8/../../../../include/c++/4.8',
+'-isysyem',
+'/usr/bin/../lib/gcc/i686-linux-gnu/4.8/../../../../include/c++/4.8/backward',
+'-isystem',
+'/usr/bin/../lib/gcc/i686-linux-gnu/4.8/../../../../include/i386-linux-gnu/c++/4.8',
+'-isystem',
+'/usr/bin/../lib/gcc/i686-linux-gnu/4.8/../../../../include/c++',
+'-isystem',
+'/usr/local/include',
+'-isystem',
+'/usr/include/clang/3.2/include',
+'-isystem',
+'/usr/include/i386-linux-gnu',
+'-isystem',
 '/usr/include',
-'-I',
-'/usr/local/include',
-'-I',
-'/usr/include/i386-linux-gnu/c++/4.8',
-'-I',
-'/usr/include/c++/4.8/backward',
-'-I',
-'/usr/lib/gcc/i686-linux-gnu/4.8/include',
-'-I',
-'/usr/local/include',
-'-I',
-'/usr/lib/gcc/i686-linux-gnu/4.8/include-fixed',
-'-I',
-'/usr/lib/i386-linux-gnu/wx/include/gtk2-unicode-release-2.8',
 ]
 
 
