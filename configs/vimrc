@@ -11,11 +11,11 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'Raimondi/delimitMate'
-"Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/syntastic'
 Bundle 'octol/vim-cpp-enhanced-highlight'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Valloric/YouCompleteMe'
-"Bundle 'altercation/vim-colors-solarized'
+Bundle 'altercation/vim-colors-solarized'
 "Bundle 'vim-scripts/TagHighlight'
 "Bundle 'vim-scripts/taglist.vim'
 
@@ -30,6 +30,23 @@ filetype plugin indent on     " required!
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle commands are not allowed.
 " 
+
+set t_Co=256
+set term=screen-256color
+syntax enable
+syntax on
+let g:solarized_termcolors=256
+"let g:solarized_termtrans=1
+let g:solarized_bold=1
+"let g:solarized_contrast="high"
+"let g:solarized_visibility="high"
+"set background=dark
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
+colorscheme solarized
 
 let g:indent_guides_guide_size=1
 let g:indent_guides_auto_colors = 0
@@ -46,14 +63,6 @@ set encoding=utf-8
 let g:Powerline_symbols='fancy'
 set laststatus=2
 set nu
-set t_Co=256
-set background=dark
-"let g:solarized_termtrans=1
-syntax enable
-let g:solarized_bold=1
-let g:solarized_termcolors=256
-colorscheme solarized
-
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -65,13 +74,19 @@ set cursorline
 set cc=100
 "set cursorcolumn
 hi Visual cterm=NONE ctermbg=yellow ctermfg=white guibg=darkred guifg=white
+"set hlsearch
 set list
 set lcs=tab:\>\ ,nbsp:%,trail:-
 set cinoptions=g0 " set public indent no tab
+set cino=:0 " set siwtch case no tab
+"set guioptions-=T "remove toolbar
+"set guioptions-=r "remove right-hand scroll bar
+"set guioptions-=L "remove left-hand scroll bar. Fix for TagBar.
 hi LeaderTab guifg=#666666
 match LeaderTab /^\t/
 map <C-n> :NERDTreeToggle<CR>
 
+" delimitMate
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['Darkblue',    'SeaGreen3'],
@@ -99,17 +114,19 @@ au Syntax * RainbowParenthesesLoadBraces
 let delimitMate_expand_cr = 2
 let delimitMate_jump_expansion = 1
 
+" YCM
+map <C-G> :YcmDiag<CR>
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 highlight YcmErrorLine guibg=#3f0000
 let g:ycm_confirm_extra_conf = 0 
 
 " Syntastic
-"let g:syntastic_c_checkers=['make']
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_check_on_open=1
-"let g:syntastic_enable_signs=1
-"let g:syntastic_error_symbol = '✗'
-"let g:syntastic_warning_symbol = '⚠'
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*gbar
+let g:syntastic_c_checkers=['make']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_signs=1
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*gbar
