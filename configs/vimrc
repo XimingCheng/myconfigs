@@ -77,8 +77,9 @@ hi Visual cterm=NONE ctermbg=yellow ctermfg=white guibg=darkred guifg=white
 "set hlsearch
 set list
 set lcs=tab:\>\ ,nbsp:%,trail:-
-set cinoptions=g0 " set public indent no tab
-set cino=:0 " set siwtch case no tab
+set cinoptions=g0,:0
+"set cinoptions=g0 " set public indent no tab
+"set cino=:0 " set siwtch case no tab
 "set guioptions-=T "remove toolbar
 "set guioptions-=r "remove right-hand scroll bar
 "set guioptions-=L "remove left-hand scroll bar. Fix for TagBar.
