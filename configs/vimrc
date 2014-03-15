@@ -16,6 +16,8 @@ Bundle 'octol/vim-cpp-enhanced-highlight'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'vim-scripts/awk.vim'
+Bundle 'wincent/Command-T'
 "Bundle 'vim-scripts/TagHighlight'
 "Bundle 'vim-scripts/taglist.vim'
 
