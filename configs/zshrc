@@ -76,8 +76,31 @@ fpath=(~/github/zsh-completions/src $fpath)
 alias ycmconf="vi ~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py"
 alias zshnow="source ~/.zshrc"
 alias vimrc="vi ~/.vimrc"
-alias gits="git status"
+# alias gits="git status"
 # alias gitd="git diff --color"
 alias gitup="git ls-files -d | xargs -i git checkout {}"
+alias gpm="gp origin master"
 alias zshrc="vi ~/.zshrc"
-export TERM=xterm-256color
+alias tmux="TERM=screen-256color-bce tmux"
+#export TERM=xterm-256color
+
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+
+# Set colors for man pages
+man() {
+    env \
+    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+    LESS_TERMCAP_md=$(printf "\e[1;31m") \
+    LESS_TERMCAP_me=$(printf "\e[0m") \
+    LESS_TERMCAP_se=$(printf "\e[0m") \
+    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+    LESS_TERMCAP_ue=$(printf "\e[0m") \
+    LESS_TERMCAP_us=$(printf "\e[1;32m") \
+    man "$@"
+}
