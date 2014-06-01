@@ -27,6 +27,9 @@ apt-get -qq install htop
 apt-get -qq install upower
 apt-get -qq install vlc
 apt-get -qq install tmux
+apt-get -qq install meld
+apt-get -qq install curl
+apt-get -qq install libpython-dev
 
 apt-get -qq install zsh
 
