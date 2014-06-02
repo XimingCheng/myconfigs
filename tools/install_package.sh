@@ -30,6 +30,7 @@ apt-get -qq install tmux
 apt-get -qq install meld
 apt-get -qq install curl
 apt-get -qq install libpython-dev
+apt-get -qq install ctags
 
 apt-get -qq install zsh
 

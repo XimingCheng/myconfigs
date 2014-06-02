@@ -1,4 +1,5 @@
 set nocompatible
+
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
@@ -119,7 +120,7 @@ let delimitMate_jump_expansion = 1
 
 " YCM
 map <C-G> :YcmDiag<CR>
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 highlight YcmErrorLine guibg=#3f0000
 let g:ycm_confirm_extra_conf = 0 
 
@@ -133,3 +134,5 @@ let g:syntastic_warning_symbol = '⚠'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*gbar
+
+" pyclewn

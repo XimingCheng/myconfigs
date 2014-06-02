@@ -20,11 +20,16 @@ git config interactive=auto
 # create vim plugin dir and github dir
 [[ -d '~/.vim/bundle' ]] || mkdir -p ~/.vim/bundle
 [[ -d '~/github' ]] || mkdir ~/github
+[[ -d '~/ycm_build' ]] || mkdir ~/ycm_build
+# terminal shell configs
+[[ -d '~/.gconf/apps/gnome-terminal/profiles/Default' ]] || mkdir -p ~/.gconf/apps/gnome-terminal/profiles/Default
 
+cp ../configs/%gconf.xml        ~/.gconf/apps/gnome-terminal/profiles/Default
 cd ~/github
 git clone https://github.com/zsh-users/zsh-completions.git
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 git clone https://github.com/Lokaltog/powerline-fonts.git
+# Terminal font Ubuntu Mono derivative Powerline 12
 
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 chsh -s 'which zsh'
@@ -45,6 +50,8 @@ git clone https://github.com/nathanaelkane/vim-indent-guides.git
 git clone https://github.com/Lokaltog/vim-powerline.git
 git clone https://github.com/gmarik/vundle.git
 git clone https://github.com/Valloric/YouCompleteMe.git
+cd ~/.vim/bundle/YouCompleteMe
+git submodule update --init --recursive
 
 # for clang to obtain the include path
 #   echo | clang -v -E -x c++ -
@@ -52,5 +59,9 @@ git clone https://github.com/Valloric/YouCompleteMe.git
 #  `gcc -print-prog-name=cc1plus` -v
 #  `g++ -print-prog-name=cc1plus` -v
 
-#cp ../configs/ycm_extra_conf.py 
+# YouCompleteMe complie with cmake and its config file settings
+cp ../configs/ycm_extra_conf.py ~/.ycm_extra_conf.py
+cd ~/ycm_build
+cmake -G "Unix Makefiles" . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp -DUSE_SYSTEM_LIBCLANG=ON
+make ycm_support_libs
 
