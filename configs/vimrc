@@ -19,6 +19,14 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'vim-scripts/awk.vim'
 Bundle 'wincent/Command-T'
+Bundle 'klen/python-mode'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'tpope/vim-commentary'
+"Bundle 'hdima/python-syntax'
+"Bundle 'kevinw/pyflakes-vim'
+Bundle 'terryma/vim-multiple-cursors'
+"Bundle 'bling/vim-airline'
+"Bundle 'vim-scripts/CCTree'
 "Bundle 'vim-scripts/TagHighlight'
 "Bundle 'vim-scripts/taglist.vim'
 
@@ -74,7 +82,7 @@ set autoindent
 set cindent
 set hls
 set cursorline
-set cc=100
+set cc=80
 "set cursorcolumn
 hi Visual cterm=NONE ctermbg=yellow ctermfg=white guibg=darkred guifg=white
 "set hlsearch
@@ -136,3 +144,11 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*gbar
 
 " pyclewn
+
+" pymode
+let g:pymode = 1
+let g:pymode_rope = 0
+let g:pymode_folding = 0
+let g:pymode_quickfix_minheight = 3
+let g:pymode_quickfix_maxheight = 6
+let g:pymode_lint_on_fly = 1
