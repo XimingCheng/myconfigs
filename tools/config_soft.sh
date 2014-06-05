@@ -7,6 +7,7 @@ cp ../configs/bashrc            ~/.bashrc
 cp ../configs/gdbinit           ~/.gdbinit
 cp ../configs/tmux.conf         ~/.tmux.conf
 cp ../configs/vimrc             ~/.vimrc
+cp ../configs/zshrc             ~/.zshrc
 
 # git config settings
 git config core.editor=vim
@@ -18,11 +19,32 @@ git config color.branch=auto
 git config interactive=auto
 
 # create vim plugin dir and github dir
-[[ -d '~/.vim/bundle' ]] || mkdir -p ~/.vim/bundle
-[[ -d '~/github' ]] || mkdir ~/github
-[[ -d '~/ycm_build' ]] || mkdir ~/ycm_build
+if [ -d '~/.vim/bundle' ]; then
+    echo "vim bundle dir exist"
+else
+    mkdir -p ~/.vim/bundle
+fi
+if [ -d '~/github' ]; then
+    echo "github dir exist"
+else
+    mkdir ~/github
+fi
+if [ -d '~/ycm_build' ]; then
+    echo "ycm build dir exist"
+else
+    mkdir ~/ycm_build
+fi
 # terminal shell configs
-[[ -d '~/.gconf/apps/gnome-terminal/profiles/Default' ]] || mkdir -p ~/.gconf/apps/gnome-terminal/profiles/Default
+if [ -d '~/.gconf/apps/gnome-terminal/profiles/Default' ]; then
+    echo "gnome terminal conf dir exsit"
+else
+    mkdir -p ~/.gconf/apps/gnome-terminal/profiles/Default
+fi
+if [ -d '~/.fonts' ]; then
+    echo "fonts conf dir exist"
+else
+    mkdir ~/.fonts
+fi
 
 cp ../configs/%gconf.xml        ~/.gconf/apps/gnome-terminal/profiles/Default
 cd ~/github
