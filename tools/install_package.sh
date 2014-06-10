@@ -33,5 +33,6 @@ apt-get -qq install libpython-dev
 apt-get -qq install ctags
 
 apt-get -qq install zsh
-
+apt-get -qq install ruby-dev
+apt-get -qq install rake
 # more package will be added in the future

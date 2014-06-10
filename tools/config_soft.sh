@@ -87,3 +87,5 @@ cd ~/ycm_build
 cmake -G "Unix Makefiles" . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp -DUSE_SYSTEM_LIBCLANG=ON
 make ycm_support_libs
 
+cd ~/.vim/bundle/Command-T
+rake make
